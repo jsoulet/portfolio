@@ -1,0 +1,24 @@
+@media only screen and (max-width: 960px) {
+    .search{
+        display: none;
+    }
+    .slider{
+        display: none;
+    }
+
+    nav {
+        width:100%;
+    }
+    .nav-item {
+        width:100%;
+        float:none;
+    }
+
+    .nav-mobile {
+        display:block;
+    }
+    .nav-list {
+        display:none;
+    }
+    
+}
