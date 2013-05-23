@@ -35,11 +35,11 @@ nav{
     margin:0;
     list-style-type:none;
  }
-.nav-item {
+.menu-item {
     margin-left:2px;
     float:left; /*pour IE*/
  }
-.nav-item a {
+.menu-item a {
     color: #000;
     font-size: 12px;
     font-weight: bold;

@@ -7,7 +7,6 @@
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
     <!-- leave this for stats -->
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
     <link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
     <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
@@ -35,12 +34,16 @@
             <em><?php bloginfo('description'); ?></em>
         </div>
         <nav class="grid_6 omega nav">
-            <ul class="nav-list">
+            <?php wp_nav_menu( array('theme_location'  => 'header_menu',
+                                     'menu_class' => 'nav-list',
+                                     'container'=> 'ul',
+                                     'items_wrap' => '<ul class="nav-list"><li class="nav-item" id="item-id"></li>%3$s'));?>
+            <!-- <ul class="nav-list">
               <li class="nav-item"><a href="#">Home</a></li>
               <li class="nav-item"><a href="#">Resume</a></li>
               <li class="nav-item"><a href="#">Portfolio</a></li>
               <li class="nav-item"><a href="#">Contact</a></li>
-            </ul>
+            </ul> -->
         </nav>
         <div class="grid_4 alpha omega search">
             <label for="search_bar">Search:</label>
