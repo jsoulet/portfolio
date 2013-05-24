@@ -9,13 +9,20 @@
                )
            );
        }
-    add_filter('stylesheet_directory_uri','gkp_stylesheet_directory_uri', 10, 2);
-        function gkp_stylesheet_directory_uri($stylesheet_dir_uri, $stylesheet) {
+    /**
+    * Change style.css default folder
+    * from 'theme/' to 'theme/css/' 
+    **/
+    add_filter('stylesheet_directory_uri','stylesheet_directory_uri', 10, 2);
+        function stylesheet_directory_uri($stylesheet_dir_uri, $stylesheet) {
         // On ajoute notre dossier
         return $stylesheet_dir_uri.'/css';
      
     }
-
+    /**
+    * Automatically add CSS files in the header
+    * with wp_header() function
+    **/
     add_action('wp_enqueue_scripts', 'gkp_insert_css_in_head');
         function gkp_insert_css_in_head() {
         // On ajoute le css general du theme
@@ -34,17 +41,17 @@
         wp_enqueue_style( 'app' );
         wp_enqueue_style( 'small' );
     }
-
-    add_action('init', 'gkp_insert_js_in_footer');
-        function gkp_insert_js_in_footer() {
-         
-        // On verifie si on est pas dans l'admin
-        if( !is_admin() ) :
-         
-        // On annule jQuery installer par WordPress (version 1.4.4
+    /**
+    * Automatically add JS files in the footer
+    * with wp_footer() function
+    **/
+    add_action('init', 'insert_js_in_footer');
+    function insert_js_in_footer() {
+    // Check if in admin
+    if( !is_admin() ) :
+        // Cancel Wordpress JQuery version
         wp_deregister_script( 'jquery' );
-         
-        // On insere le fichier de ses propres fonctions javascript
+        // Insert own JS files
         wp_register_script('app', get_bloginfo( 'template_directory' ).'/js/app.js','',false,true);
         wp_register_script('jquery', get_bloginfo( 'template_directory' ).'/js/jquery-1.9.1.min.js','',false,true);
         wp_register_script('carousel', get_bloginfo( 'template_directory' ).'/js/jquery.jcarousel.min.js','',false,true);
@@ -53,7 +60,44 @@
         wp_enqueue_script( 'carousel' );
         wp_enqueue_script( 'app' );
         wp_enqueue_script( 'small' );
-     
     endif;
     }
+    /**
+    * Display a carousel using jCarousel syntaxe
+    **/
+    function get_carousel() {
+        wp_reset_query();
+        $category_id = 1; // Assuming that the category number of "Featured Gallery" is 1. Change the category ID when needed.
+        $limit = 6; // Number of posts to be shown at a time.
+        query_posts('showposts=' . $limit);
+        $generator = get_option('home') . '/wp-content/tt-script/timthumb.php?';
+        ?>
+        <ul id="carousel" class="carousel">
+            <?php while (have_posts()) : the_post(); ?>
+                <?php
+                    if( has_post_thumbnail()){
+                        //$img = $generator . 'src=' .  theme_function_capture_first_image() . '&w=191&h=191&zc=1';
+                        ?>
+                        <li>
+                            <?php the_post_thumbnail('full'); ?>
+                            <!-- <img src="<?php echo $img; ?>" alt="" /> -->
+                            <div class="title">
+                                <a href="<?php get_permalink(); ?>"><h3><?php  the_title() ?></h3></a>
+                                <p><?php the_excerpt(); ?></p>
+                            </div>
+                        </li>
+                        <?php } ?>
+            <?php endwhile; ?>
+        </ul>
+        <a id="carousel-prev" class="carousel-nav" href="#">&lt;</a>
+        <a id="carousel-next" class="carousel-nav" href="#">&gt;</a>
+        <?php wp_reset_query();
+    }
+    /**
+    * Hook to remove the '[...]' after excerpt
+    **/
+    function new_excerpt_more( $more ) {
+        return '';
+    }
+    add_filter('excerpt_more', 'new_excerpt_more');
 ?>

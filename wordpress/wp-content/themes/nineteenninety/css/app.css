@@ -22,7 +22,7 @@ header{
 
 }
 .logo h1 a:hover{
-    text-decoration:none;
+    text-decoration:none
 }
 
 .logo em{
@@ -163,7 +163,10 @@ nav{
     font-size: 16px;
     text-transform:uppercase;
     font-weight: normal;
-
+    color: #FFF;
+}
+.title a:hover{
+    text-decoration:none;
 }
 
 /* goto ------------*/
