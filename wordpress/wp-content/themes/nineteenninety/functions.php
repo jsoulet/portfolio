@@ -1,5 +1,6 @@
 <?php
     add_theme_support( 'menus' );
+    add_theme_support( 'post-thumbnails' );
     add_action( 'init', 'register_my_menus' );
        function register_my_menus() {
            register_nav_menus(
@@ -18,14 +19,14 @@
     add_action('wp_enqueue_scripts', 'gkp_insert_css_in_head');
         function gkp_insert_css_in_head() {
         // On ajoute le css general du theme
-        wp_register_style('resset', 'resset.css','',false,'all');
-        wp_register_style('grid_480', get_bloginfo( 'template_directory' ).'/css/'.'grid_480.css','',false,'screen and (max-width: 960px)');
-        wp_register_style('grid_960', get_bloginfo( 'template_directory' ).'/css/'.'grid_960.css','',false,'screen and (max-width: 1440px) and (min-width: 960px)');
+        wp_register_style('reset',    get_bloginfo( 'template_directory' ).'/css/'.'reset.css',   '',false,'all');
+        wp_register_style('grid_480',  get_bloginfo( 'template_directory' ).'/css/'.'grid_480.css', '',false,'screen and (max-width: 960px)');
+        wp_register_style('grid_960',  get_bloginfo( 'template_directory' ).'/css/'.'grid_960.css', '',false,'screen and (max-width: 1440px) and (min-width: 960px)');
         wp_register_style('grid_1440', get_bloginfo( 'template_directory' ).'/css/'.'grid_1440.css','',false,'screen and (min-width: 1440px)');
-        wp_register_style('text', get_bloginfo( 'template_directory' ).'/css/'.'text.css','',false,'all');
-        wp_register_style('app', get_bloginfo( 'template_directory' ).'/css/'.'app.css','',false,'all');
-        wp_register_style('small', get_bloginfo( 'template_directory' ).'/css/'.'small.css','',false,'screen');
-        wp_enqueue_style( 'resset' );
+        wp_register_style('text',      get_bloginfo( 'template_directory' ).'/css/'.'text.css',     '',false,'all');
+        wp_register_style('app',       get_bloginfo( 'template_directory' ).'/css/'.'app.css',      '',false,'all');
+        wp_register_style('small',     get_bloginfo( 'template_directory' ).'/css/'.'small.css',    '',false,'screen');
+        wp_enqueue_style( 'reset' );
         wp_enqueue_style( 'grid_480' );
         wp_enqueue_style( 'grid_960' );
         wp_enqueue_style( 'grid_1440' );

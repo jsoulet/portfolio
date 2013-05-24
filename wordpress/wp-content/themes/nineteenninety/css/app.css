@@ -15,11 +15,16 @@ header{
     height: 50px;
 }
 /* .logo -----------*/
-.logo h1{
+.logo h1 a{
+    color: #000;
     font-weight: bold;
     font: 36px 'Open Sans Condensed', sans-serif;
 
 }
+.logo h1 a:hover{
+    text-decoration:none;
+}
+
 .logo em{
     font-size: 16px;
     font-style: italic;
@@ -76,7 +81,7 @@ nav{
     padding: 0 10px;
 }
 
-.search .search_btn{
+#search_btn{
     content: "S";
     font: 18px 'ModernPictogramsNormal', Arial, sans-serif;
     background-color: #cccccc;
