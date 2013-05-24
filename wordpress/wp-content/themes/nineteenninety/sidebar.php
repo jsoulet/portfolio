@@ -2,7 +2,8 @@
     <article class="headings">
       <h2>Headings</h2>
       <div class="alpha omega grid_3">
-        <ul id="carousel-control">
+        <?php get_carousel_controls() ?>
+        <!-- <ul id="carousel-control">
           <li><a href="#" data-value="1">
                 <img class="alpha grid_1" src="images/intg_small.png" alt="Intg"/>
               </a>
@@ -15,7 +16,7 @@
                 <img class="omega grid_1" src="images/utc_small.png" alt="UTC"/>
               </a>
           </li>
-        </ul>
+        </ul> -->
       </div>
       <div class="clear"> </div>
       <p>Preview of my last projects by clicking on the thumbnails above or directly go to the list of my previous experiences</p>

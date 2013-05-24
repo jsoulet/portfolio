@@ -1,6 +1,6 @@
-<?php get_header(); ?> <!-- /header.php -->
+<?php get_header(); ?>
+<!-- /header.php -->
 <!-- content -->
-
 <section class="container_12 content">
 
   <section class="container_8 grid_8 alpha omega main">
@@ -25,9 +25,12 @@
       </article>
     </section>
   </section>
+  <!-- /content -->
   <?php get_sidebar(); ?>
 
 </section>
+<!-- footer -->
 <?php get_footer(); ?>
+<!-- /footer -->
 </body>
 </html>

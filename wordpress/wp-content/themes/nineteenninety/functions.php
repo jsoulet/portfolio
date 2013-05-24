@@ -70,13 +70,11 @@
         $category_id = 1; // Assuming that the category number of "Featured Gallery" is 1. Change the category ID when needed.
         $limit = 6; // Number of posts to be shown at a time.
         query_posts('showposts=' . $limit);
-        $generator = get_option('home') . '/wp-content/tt-script/timthumb.php?';
         ?>
         <ul id="carousel" class="carousel">
             <?php while (have_posts()) : the_post(); ?>
                 <?php
                     if( has_post_thumbnail()){
-                        //$img = $generator . 'src=' .  theme_function_capture_first_image() . '&w=191&h=191&zc=1';
                         ?>
                         <li>
                             <?php the_post_thumbnail('full'); ?>
@@ -100,4 +98,26 @@
         return '';
     }
     add_filter('excerpt_more', 'new_excerpt_more');
+
+    function get_carousel_controls() {
+        wp_reset_query();
+        $category_id = 1; // Assuming that the category number of "Featured Gallery" is 1. Change the category ID when needed.
+        $limit = 6; // Number of posts to be shown at a time.
+        query_posts('showposts=' . $limit);
+        $i=1;
+        ?>
+        <ul id="carousel-control">
+            <?php while (have_posts()) : the_post(); ?>
+                <?php
+                    if( has_post_thumbnail()){
+                        ?>
+                        <li><a class= "grid_1" href="#" data-value="<?php echo $i++; ?>">
+                                <?php the_post_thumbnail(array(65,65), array('class' => "grid_1")); ?>
+                            </a>
+                        </li>
+                        <?php } ?>
+            <?php endwhile; ?>
+        </ul>
+        <?php wp_reset_query();
+    }
 ?>
