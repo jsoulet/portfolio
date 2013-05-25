@@ -81,7 +81,7 @@
                             <!-- <img src="<?php echo $img; ?>" alt="" /> -->
                             <div class="title">
                                 <a href="<?php the_permalink(); ?>"><h3><?php  the_title() ?></h3></a>
-                                <p><?php the_excerpt(); ?></p>
+                                <?php the_excerpt(); ?>
                             </div>
                         </li>
                         <?php } ?>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head profile="http://gmpg.org/xfn/11">
+<head>
  
     <title><?php bloginfo('name') ?><?php if ( is_404() ) : ?> | <?php _e('Not Found') ?><?php elseif ( is_home() ) : ?> | <?php bloginfo('description') ?><?php else : ?><?php wp_title() ?><?php endif ?></title>
  
@@ -13,7 +13,7 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300italic|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <?php wp_head(); ?>
-    <?php wp_get_archives('type=monthly&format=link'); ?>
+    <?php //wp_get_archives('type=monthly&format=link'); ?>
     <?php //comments_popup_script(); // off by default ?>
 </head>
 <body>
@@ -31,7 +31,7 @@
             <?php wp_nav_menu( array('theme_location'  => 'header_menu',
                                      'menu_class' => 'nav-list',
                                      'container'=> 'ul',
-                                     'items_wrap' => '<ul class="nav-list">%3$s'));?>
+                                     'items_wrap' => '<ul class="nav-list">%3$s</ul>'));?>
         </nav>
         <div class="grid_4 alpha omega search">
             <?php get_search_form(); ?>
