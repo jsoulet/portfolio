@@ -212,6 +212,11 @@ nav{
     fill: #249cd3;
 }
 
+.bottom .textwidget{
+    margin: 0;
+    padding: 0;
+}
+
 /* sub -----------*/
 .sub h2{
     font-size: 13px;

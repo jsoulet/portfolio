@@ -120,4 +120,38 @@
         </ul>
         <?php wp_reset_query();
     }
+
+    if ( function_exists('register_sidebar') )
+        register_sidebar(array(
+            'name' => __( 'Sidebar'),
+            'id' => '1',
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        ));
+        register_sidebar(array(
+            'name' => __( 'Bottom left'),
+            'id' => '2',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        ));
+        register_sidebar(array(
+            'name' => __( 'Bottom right'),
+            'id' => '3',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        ));
+        register_sidebar(array(
+            'name' => __( 'Over slider controls'),
+            'id' => '4',
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        ));
 ?>
