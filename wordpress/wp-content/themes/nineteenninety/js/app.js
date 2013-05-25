@@ -25,9 +25,9 @@ jQuery(document).ready(function() {
         buttonPrevHTML: null
     });
 
-    /*
+    /**
     * Replace all SVG images with inline SVG
-    */
+    **/
     jQuery('img.svg').each(function(){
         var $img = jQuery(this);
         var imgID = $img.attr('id');
@@ -55,4 +55,19 @@ jQuery(document).ready(function() {
         });
 
     });
+
+    /**
+    * Show/hide title on mouse hover in portfolio list
+    **/
+    $('.list_title').parent().mouseenter(function() {
+                clearTimeout($.data(this, 'timer'));
+                $(this).children('.list_title').stop(true, true).slideDown(200);
+            });
+
+    $('.list_title').parent().mouseleave(function () {
+        $.data(this, 'timer', setTimeout($.proxy(function() {
+            $(this).children('.list_title').stop(true, true).slideUp(200);
+        }, this), 200));
+    });
+
 });
