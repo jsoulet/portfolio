@@ -9,301 +9,236 @@
     font-style: normal;
 
 }
+body{
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica,Arial, sans-serif;
+}
 .symbol{
     font: 18px 'ModernPictogramsNormal', Arial, sans-serif;
 }
-
-/* header ----------*/
-header{
-    height: 50px;
+.float-left{
+    float: left;
 }
-/* .logo -----------*/
-.logo h1 a{
-    color: #000;
-    font-weight: bold;
-    font: 36px 'Open Sans Condensed', sans-serif;
-
+.omega{
+    margin-left: 0; 
 }
-.logo h1 a:hover{
-    text-decoration:none
-}
-
-.logo em{
-    font-size: 16px;
-    font-style: italic;
-}
-
-.logo img{
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    margin-top: 10px;
-}
-
-/* nav -------------*/
-nav{
-    line-height: 80px;
-    position:relative;
-}
-.nav-list {
-    padding:0;
-    margin:0;
-    list-style-type:none;
- }
-.menu-item {
-    margin-left:2px;
-    float:left; /*pour IE*/
- }
-.menu-item a {
-    color: #000;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform:uppercase;
-    display:block;
-    float:left;   
-    /*width:100px;*/
-    padding: 0 20px;
-    text-decoration:none;
-    /*text-align:center;*/
-    
-}
-
-.nav-item a:hover{
-    text-decoration: none;
-}
-
-.nav-mobile {
-        display:none; /* Hide from browsers that don't support media queries */
-        cursor:pointer;
-        position:absolute;
-        top:0;
-        right:0;
-        background:#000 url(../images/nav-mobile.svg) no-repeat center center;
-        height:40px;
-        width:40px;
-}
-
-/* search ----------*/
-.search{
-    line-height: 80px;
-    background-color: #000;
-    color: #fff;
-    padding: 0 10px;
-}
-
-#search_btn{
-    content: "S";
-    font: 18px 'ModernPictogramsNormal', Arial, sans-serif;
-    background-color: #cccccc;
-    border: 0 solid;
-}
-
-#search_bar{
-    background-color: #fff;
-    border: 0 solid;
-    font-size: 15px;
-}
-
-
-/* slider ----------*/
-.slider{
-    position:relative;
-    overflow: hidden;
-    height: 300px;
-    border: solid #000 1px;
-}
-
-.slider ul{
-    padding:0;
-    margin:0;
-    list-style-type:none;
-}
-
-.slider ul li{
-    padding:0;
-    margin:0;
-}
-
-.carousel{
-    padding: 0;
-    margin: 0;
-}
-
-.carousel-nav{
-    position:absolute;
-    display:block;
-    width:30px;
-    height:30px;
-    border-radius:15px;
-    line-height:30px;
-    text-align:center;
-    /*font: 20px 'WebSymbolsRegular', Arial, sans-serif;*/
-    font-size: 20px;
-    font-weight: bold;
-
-    color: #fff;
-    background:rgba(0,0,0,0.5);
-}
-.carousel-nav:hover{
-    color: #fff;
-    background:rgba(0,0,0,0.5);
-    text-decoration:none;
-}
-
-#carousel-prev{
-    bottom:150px;
-    left:20px;
-    
-}
-#carousel-next{
-    bottom:150px;
-    right:20px;
-}
-.carousel .title{
-    position: absolute;
-    background: rgba(0,0,0,0.5);
-    height: 80px;
-    top: 220px;
-    color: #FFF;
-    width: 100%;
-    padding: 10px 0 10px 10px;
-}
-
-.title h3{
-    font-size: 16px;
-    text-transform:uppercase;
-    font-weight: normal;
-    color: #FFF;
-}
-.title a:hover{
-    text-decoration:none;
-}
-
-/* goto ------------*/
+/* Goto : link left aligned with arrow before
+--------------------*/
 .goto{
     float: right;
     text-align: right;
-
 }
 .goto:before{
     font: 18px 'ModernPictogramsNormal', Arial, sans-serif;
     content: "> ";
 }
 
-/* bottom ----------*/
-.bottom{
-    color: #999999;
-} 
-.bottom h2{
-    color: #555555;
-    font-size: 14px;
-    font-weight: normal;
+/* Header
+--------------------*/
+.navbar{
+    margin: 0;
+    background-color: #FFF;
+    overflow: hidden;
+    border-bottom: 1px solid #ABABAB;
 }
-.bottom article div{
-    background-color: #dddddd;
-    padding: 15px;
-    padding-bottom: 30px;
-    margin-top: 10px;
+.navbar-inner{
+    padding: 0;
+    background: #FFF;
+    border: 0;
+    box-shadow: none;
+
+}
+.logo{
+    color: #000;
+}
+.logo:hover{
+    color: #000;
+}
+.logo *{
+    margin: 1px 0.4em 0 0;
+    margin-right: 0.4em;
+}
+.logo h1{
+    font: 2.6em 'Open Sans Condensed', 'Helvetica Neue', Helvetica,Arial, sans-serif;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+.logo em{
+    font-size: 1.14em;
+    font-style: italic;
+}
+.navbar .nav > li > a{
+    color:#000;
+    font-weight: bold;
+    text-transform:uppercase;
+    line-height: 70px;
+    text-shadow: none;
+}
+.navbar .nav > li > a:hover{
+    color:#000;
+}
+.navbar .btn-navbar{
+    background: #000;
+}
+.navbar .btn-navbar:hover{
+    background: #000;
+}
+.nav>.menu-item>a:hover{
+    text-decoration: underline;     
+}
+.nav>.menu-item{
+    position: relative;
+}
+.triangle{
+    content: '^';
+    background: black;
+    display: block;
+    height: 1em;   
+    width: 1em;
+    z-index: 99;
+    position: absolute;
+    bottom: -0.55em;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform: rotate(-45deg);
+    -moz-transform-origin: 50% 50%;
+    -ms-transform: rotate(-45deg);
+    -ms-transform-origin:50% 50%;
+    -o-transform: rotate(-45deg);
+    -o-transform-origin: 50% 50%;
+    transform: rotate(-45deg);
+    transform-origin: 50% 50%;   
 }
 
+.search-form{
+    color:#FFF;
+    background: #000;
+    line-height: 70px;
+    padding-right: 30px;
+}
+.search-form label{
+    color:#FFF;
+}
+.search-form form{
+    padding: 0 1em 0 1em;
+}
+.search-form .input-append .btn{
+    vertical-align:middle;
+}
+/* Carousel
+--------------------*/
+.carousel-inner .item{
+    height: 300px;
+    overflow: hidden;
+}
+.carousel-control{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+.carousel-caption{
+    color: #FFF;
+    text-decoration: none;
+}
+.carousel-caption:hover{
+    color: #FFF;
+    text-decoration: none;
+}
+.carousel-caption h3{
+    margin: 0;
+    text-transform:uppercase;
+    font-weight: normal;
+}
+.carousel-caption p{
+    font-style: italic;
+}
+/* Boxes
+--------------------*/
+.box{
+    background-color: #DDD;
+    color: #999999;
+}
+.box h2{
+    color: #555555;
+    font-size: 1.1em;
+    margin: 0;
+    font-weight: normal;
+}
+.box>div{
+    padding: 1em;
+    padding-bottom: 2em;
+}
 #screens path{
     fill: #249cd3;
 }
-
-.bottom .textwidget{
-    margin: 0;
-    padding: 0;
+/* Sidebar
+--------------------*/
+.sidebar{
+    padding-left: 1em;
 }
-
-/* sub -----------*/
-.sub h2{
-    font-size: 13px;
-    margin: 15px 0;
+.sidebar h2{
+    font-size: 1em;
+    margin: 0;
     text-transform:uppercase;
 }
-.sub p{
-    margin-top: 15px;
-}
-.headings{
-    padding-bottom: 30px;}
-
-#carousel-control{
-    padding:0;
-    margin:0;
+.carousel-thumbnails{
+    margin: 0;
+    padding: 0;
     list-style-type:none;
 }
 
-#carousel-control li{
-    padding:0;
-    margin:0;
-}
-/* Page
-----------*/
-#single_title{
-    font-size:30px;
+.carousel-thumbnails .row-fluid{
+    margin-top: 0.5em;
 }
 
-#single_excerpt{
-    font-size: 16px;
+.carousel-thumbnails img{
+    border: solid 2px #000;
+}
+
+/* Single article and Page
+---------------------*/
+.single_title{
+    font-size:2em;
+}
+.single_excerpt{
+    font-size: 1.1em;
     font-style: italic;
-    margin: 10px 0 10px 0;
+    margin: 0.8em 0 0.8em 0;
 }
-
-#single_tags{
-
-}
-
-#single_content{
-    margin: 10px 0 10px 0;
-}
-
-#single_content p{
+.single_content{
     text-align: justify;
-    margin-bottom: 5px;
-}
-
-#single_content h1,
-#single_content h2,
-#single_content h3,
-#single_content h4,
-#single_content h5,
-#single_content h6{
-    margin-top: 20px;
 }
 
 /* List
 ----------*/
-.list_item{
+/*.list_item{
     background-color: #FFF;
     position: relative;
     height: 235px;
     margin-top: 10px;
     margin-bottom: 10px;
-    /*padding: 15px;*/
+}*/
+.list_item{
+    position: relative;
 }
-
+.list_item a:hover{
+    text-decoration: none;
+}
 .list_title{
-    display: none;
-    height:235px;
-    width: 235px;
-    top: 0;
-    left: 0;
-    position: absolute;
     background-color: rgba(0,0,0,0.9);
     color: #FFF;
-    line-height: 235px;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
     text-align: center;
+    padding: 0;
+    margin: 0;
     text-transform:uppercase;
     font-size: 20px;
     font-weight: normal;
 }
 .list_item a:hover{
     text-decoration: none;
-}
-
-.list_main{
-    background-color: #DDD;
 }
 

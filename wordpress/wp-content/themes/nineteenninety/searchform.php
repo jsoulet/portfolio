@@ -1,5 +1,9 @@
-<form action="<?php echo home_url( '/' ); ?>" method="get">
-        <label for="search_bar">Search: </label>
-        <input type="text" name="s" id="search_bar" value="<?php the_search_query(); ?>" placeholder="Keywords..." />
-        <input type="submit" value="s" id="search_btn" />
-</form>
+<div class="search-form span3 omega">
+    <form action="<?php echo home_url( '/' ); ?>" method="get" class="form-search form-inline">
+            <label for="search" class="navbar-text">Search: </label>
+            <div class="input-append">
+                <input class="input-small search-query" type="text" id="search" placeholder="Enter keywords here..." value="<?php the_search_query(); ?>" name="s"/>
+                <button class="btn symbol search-btn" type="submit" title="Search">s</button>
+            <div>
+    </form>
+</div>

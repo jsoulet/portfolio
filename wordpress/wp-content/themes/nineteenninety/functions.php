@@ -26,18 +26,12 @@
     add_action('wp_enqueue_scripts', 'gkp_insert_css_in_head');
         function gkp_insert_css_in_head() {
         // On ajoute le css general du theme
-        wp_register_style('reset',    get_bloginfo( 'template_directory' ).'/css/'.'reset.css',   '',false,'all');
-        wp_register_style('grid_480',  get_bloginfo( 'template_directory' ).'/css/'.'grid_480.css', '',false,'screen and (max-width: 960px)');
-        wp_register_style('grid_960',  get_bloginfo( 'template_directory' ).'/css/'.'grid_960.css', '',false,'screen and (max-width: 1440px) and (min-width: 960px)');
-        wp_register_style('grid_1440', get_bloginfo( 'template_directory' ).'/css/'.'grid_1440.css','',false,'screen and (min-width: 1440px)');
-        wp_register_style('text',      get_bloginfo( 'template_directory' ).'/css/'.'text.css',     '',false,'all');
-        wp_register_style('app',       get_bloginfo( 'template_directory' ).'/css/'.'app.css',      '',false,'all');
-        wp_register_style('small',     get_bloginfo( 'template_directory' ).'/css/'.'small.css',    '',false,'screen');
-        wp_enqueue_style( 'reset' );
-        wp_enqueue_style( 'grid_480' );
-        wp_enqueue_style( 'grid_960' );
-        wp_enqueue_style( 'grid_1440' );
-        wp_enqueue_style( 'text' );
+        wp_register_style('bootstrap',  get_bloginfo( 'template_directory' ).'/css/'.'bootstrap.min.css',            '',false,'all');
+        wp_register_style('responsive', get_bloginfo( 'template_directory' ).'/css/'.'bootstrap-responsive.min.css', '',false,'all');
+        wp_register_style('app',        get_bloginfo( 'template_directory' ).'/css/'.'app.css',                      '',false,'all');
+        wp_register_style('small',      get_bloginfo( 'template_directory' ).'/css/'.'small.css',    '',false,'screen');
+        wp_enqueue_style( 'bootstrap' );
+        wp_enqueue_style( 'responsive' );
         wp_enqueue_style( 'app' );
         wp_enqueue_style( 'small' );
     }
@@ -54,12 +48,10 @@
         // Insert own JS files
         wp_register_script('app', get_bloginfo( 'template_directory' ).'/js/app.js','',false,true);
         wp_register_script('jquery', get_bloginfo( 'template_directory' ).'/js/jquery-1.9.1.min.js','',false,true);
-        wp_register_script('carousel', get_bloginfo( 'template_directory' ).'/js/jquery.jcarousel.min.js','',false,true);
-        wp_register_script('small', get_bloginfo( 'template_directory' ).'/js/small.js','',false,true);
+        wp_register_script('bootstrap', get_bloginfo( 'template_directory' ).'/js/bootstrap.min.js','',false,true);
         wp_enqueue_script( 'jquery' );
-        wp_enqueue_script( 'carousel' );
+        wp_enqueue_script( 'bootstrap' );
         wp_enqueue_script( 'app' );
-        wp_enqueue_script( 'small' );
     endif;
     }
     /**
@@ -71,24 +63,27 @@
         $limit = 6; // Number of posts to be shown at a time.
         query_posts('showposts=' . $limit);
         ?>
-        <ul id="carousel" class="carousel">
-            <?php while (have_posts()) : the_post(); ?>
-                <?php
-                    if( has_post_thumbnail()){
-                        ?>
-                        <li>
-                            <?php the_post_thumbnail('full'); ?>
-                            <!-- <img src="<?php echo $img; ?>" alt="" /> -->
-                            <div class="title">
-                                <a href="<?php the_permalink(); ?>"><h3><?php  the_title() ?></h3></a>
-                                <?php the_excerpt(); ?>
+        <div id="mainCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                <?php $index=0; ?>
+                <?php while (have_posts()) : the_post(); ?>
+                    <?php
+                        if( has_post_thumbnail()){
+                            ?>
+                            <div class="item <?php if($index++==0) echo 'active'; ?>">
+                                <?php the_post_thumbnail('full'); ?>
+                                <a href="<?php the_permalink(); ?>" class="carousel-caption">
+                                    <h3><?php  the_title() ?></h3>
+                                    <?php the_excerpt(); ?>
+                                </a>
+                                    
                             </div>
-                        </li>
-                        <?php } ?>
-            <?php endwhile; ?>
-        </ul>
-        <a id="carousel-prev" class="carousel-nav" href="#">&lt;</a>
-        <a id="carousel-next" class="carousel-nav" href="#">&gt;</a>
+                            <?php } ?>
+                <?php endwhile; ?>
+            </div>
+            <a class="carousel-control left" href="#mainCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#mainCarousel" data-slide="next">&rsaquo;</a>
+        </div>
         <?php wp_reset_query();
     }
     /**
@@ -104,20 +99,32 @@
         $category_id = 1; // Assuming that the category number of "Featured Gallery" is 1. Change the category ID when needed.
         $limit = 6; // Number of posts to be shown at a time.
         query_posts('showposts=' . $limit);
-        $i=1;
         ?>
-        <ul id="carousel-control">
-            <?php while (have_posts()) : the_post(); ?>
-                <?php
-                    if( has_post_thumbnail()){
-                        ?>
-                        <li><a class= "grid_1" href="#" data-value="<?php echo $i++; ?>">
-                                <?php the_post_thumbnail(array(65,65), array('class' => "grid_1")); ?>
-                            </a>
-                        </li>
-                        <?php } ?>
-            <?php endwhile; ?>
-        </ul>
+        <div class="row-fluid">
+            <ul class="carousel-thumbnails span12">
+                <?php $index=0; ?>
+                <?php while (have_posts()) : the_post(); ?>
+                    <?php if( has_post_thumbnail()){
+                            if($index%3 == 0)
+                                echo '<div class="row-fluid">';
+                            ?>
+                            <li><a class= "span4" href="#" data-target="#mainCarousel" data-slide-to="<?php echo $index; ?>">
+                                    <?php the_post_thumbnail(array(65, 65)); ?>
+                                </a>
+                            </li>
+                            <?php 
+                            if($index%3 == 2)
+                                echo '</div>';
+                            $index++;
+                        } ?>
+                <?php endwhile; ?>
+                <?php 
+                    if($index%3 != 0)
+                        echo '</div>';
+                ?>
+                    
+            </ul>
+        </div>
         <?php wp_reset_query();
     }
 
@@ -154,4 +161,30 @@
             'before_title' => '<h2>',
             'after_title' => '</h2>',
         ));
+
+    /*
+    * New thumbnail size
+    */
+    add_image_size( 'square', 270, 270, true); // name, width, height, crop 
+    add_filter('image_size_names_choose', 'my_image_sizes');
+    function my_image_sizes($sizes) {
+        $addsizes = array(
+            "square" => __( "Large square image"));
+        $newsizes = array_merge($sizes, $addsizes);
+        return $newsizes;
+    }
+
+
+//     include_once( ABSPATH . 'wp-admin/includes/image.php' );
+// function regenerate_all_attachment_sizes() {
+//     $args = array( 'post_type' => 'attachment', 'numberposts' => 100, 'post_status' => null, 'post_parent' => null, 'post_mime_type' => 'image' ); 
+//     $attachments = get_posts( $args );
+//     if ($attachments) {
+//         foreach ( $attachments as $post ) {
+//             $file = get_attached_file( $post->ID );
+//             wp_update_attachment_metadata( $post->ID, wp_generate_attachment_metadata( $post->ID, $file ) );
+//         }
+//     }       
+// }
+// regenerate_all_attachment_sizes();
 ?>

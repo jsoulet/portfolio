@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 <!-- /header.php -->
 <!-- content -->
-<section class="container_12 content">
+<section class="row">
 
-  <section class="grid_8 alpha omega main">
+  <section class="span9 single-container">
     <?php if(have_posts()) : ?>
       <?php while(have_posts()) : the_post(); ?>
         <article>

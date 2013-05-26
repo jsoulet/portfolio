@@ -1,12 +1,13 @@
-<section class="grid_4 omega sub">
+<section class="span3 omega sidebar">
     <?php if(is_home()){ ?>
-      <?php dynamic_sidebar('Over slider controls'); ?>
-      <div class="clear"> </div>
-      <div class="alpha omega grid_3">
-        <?php get_carousel_controls() ?>
-      </div>
+      <article class="large">
+        <?php dynamic_sidebar('Over slider controls'); ?>
+        <div class="clearfix"></div>
+        <div>
+          <?php get_carousel_controls() ?>
+        </div>
+      <div>
     <?php } ?>
-    <div class="clear"> </div>
     <?php if (function_exists('dynamic_sidebar')){ ?>
       <?php dynamic_sidebar('Sidebar'); ?>
     <?php } ?>

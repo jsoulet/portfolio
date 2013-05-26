@@ -1,17 +1,19 @@
 <?php get_header(); ?>
 <!-- /header.php -->
 <!-- content -->
-<section class="container_12 content">
+<section class="row">
 
-  <section class="grid_8 alpha omega main">
+  <section class="span9 single-container">
     <?php if(have_posts()) : ?>
       <?php while(have_posts()) : the_post(); ?>
         <article>
-          <h2 id="single_title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-          
-          <div id="single_excerpt"><?php the_excerpt() ?></div>
-          <div id="single_content"><?php the_content(); ?></div>
-
+          <h2 class="single_title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+          <div class="single_content">
+            <?php if(has_excerpt()){ ?>
+              <div class="single_excerpt"><?php the_excerpt() ?></div>
+            <?php } ?>
+            <?php the_content(); ?>
+          </div>
           <?php the_tags('<p id="single_tags"><span class="symbol">J </span>',' • ','<br /></p>'); ?>
         <article>
       <?php endwhile; ?>

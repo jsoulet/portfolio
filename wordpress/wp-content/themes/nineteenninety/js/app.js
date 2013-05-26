@@ -1,30 +1,4 @@
 jQuery(document).ready(function() {
-    function initCarousel(carousel){
-      jQuery('#carousel-control a').bind('click', function() {
-
-        carousel.scroll(jQuery.jcarousel.intval(jQuery(this).data("value")));
-        return false;
-      });
-
-      jQuery('#carousel-next').bind('click', function() {
-            carousel.next();
-            return false;
-        });
-        jQuery('#carousel-prev').bind('click', function() {
-            carousel.prev();
-            return false;
-        });
-    }
-
-    jQuery('#carousel').jcarousel({
-        scroll: 1,
-        visible: 1,
-        wrap: "circular",
-        initCallback: initCarousel,
-        buttonNextHTML: null,
-        buttonPrevHTML: null
-    });
-
     /**
     * Replace all SVG images with inline SVG
     **/
@@ -69,5 +43,32 @@ jQuery(document).ready(function() {
             $(this).children('.list_title').stop(true, true).slideUp(200);
         }, this), 200));
     });
+
+    /**
+    * Show an arrow under nav element on mouse over
+    **/
+    $('.menu-item').mouseenter(function(){
+        var triangle = $('<span>', {
+            class: 'triangle',
+            text: ' '
+        });
+        $(triangle).css('left', $(this).width()/2 - Math.sqrt(2)*triangle.width()/2);
+        $(this).append(triangle);
+    });
+    $('.menu-item').mouseleave(function(){
+        $(this).children('.triangle').remove();
+        triangleOnActive();
+    });
+
+    triangleOnActive = function(){
+        var triangle = $('<span>', {
+            class: 'triangle',
+            text: ' '
+        });
+        $('.current-menu-item').append(triangle);
+        $(triangle).css('left', triangle.parent().width()/2 - Math.sqrt(2)*triangle.width()/2);
+    };
+
+    triangleOnActive();
 
 });
