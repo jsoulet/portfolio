@@ -18,31 +18,8 @@
     <?php //comments_popup_script(); // off by default ?>
 </head>
 <body>
-    <section class="container">
-    <!-- <header class="navbar">
-        <div class="span3">
-            <div class="span1">
-                <img src="http://www.gravatar.com/avatar/<?php echo md5('johan.soulet@gmail.com') ?>" alt="Gravatar" />
-            </div>
-            <div class="span2 alpha omega">
-                <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-                <em><?php bloginfo('description'); ?></em>
-            </div>
-        </div>
-        <nav class="span5 omega nav">
-            <?php wp_nav_menu( array('theme_location'  => 'header_menu',
-                                     'menu_class' => 'nav-list',
-                                     'container'=> 'ul',
-                                     'items_wrap' => '<ul class="nav-list">%3$s</ul>'));?>
-        </nav>
-        <div class="span4 alpha omega search">
-            <?php get_search_form(); ?>
-        </div>
-    </header>
-    <div class="clear"> </div> -->
-
-
-    <header class="navbar">
+    <header class="container">
+        <div class="navbar">
         <div class="navbar-inner">
             <div class="row">
             <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -75,4 +52,6 @@
                     </div>
             </div>
         </div>
+        </div>
     </header>
+    <section class="container">

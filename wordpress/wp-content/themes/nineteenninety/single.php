@@ -12,6 +12,11 @@
             <?php if(has_excerpt()){ ?>
               <div class="single_excerpt"><?php the_excerpt() ?></div>
             <?php } ?>
+            <?php if( has_post_thumbnail()){?>
+              <div class="single_thumbnail">
+                <?php the_post_thumbnail('full'); ?>
+              </div>
+            <?php } ?>
             <?php the_content(); ?>
           </div>
           <?php the_tags('<p id="single_tags"><span class="symbol">J </span>',' • ','<br /></p>'); ?>
@@ -21,7 +26,7 @@
   </section>
   <!-- /content -->
   <?php get_sidebar(); ?>
-
+  </section>
 </section>
 <!-- footer -->
 <?php get_footer(); ?>

@@ -1,4 +1,7 @@
 @media (max-width: 979px) {
+    body{
+        padding: 0;
+    }
     .large{
         display: none;
     }
@@ -14,5 +17,17 @@
     .collapse{
         background-color: #000;
         color:#FFF;
+    }
+    .list_item{
+        width: 14.8936%!important;
+        float: left!important;
+        margin-left: 2.12766%!important;
+    }
+    .list_item h2{
+        line-height: 87px;
+        font-size: 0.8em;
+    }
+    .box{
+        margin-left: 0;
     }
 }

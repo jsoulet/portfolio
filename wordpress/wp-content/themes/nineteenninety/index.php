@@ -26,9 +26,10 @@
     <?php get_sidebar(); ?>
 
   </section>
+</section>
 <!-- footer -->
 <?php get_footer(); ?>
 <!-- /footer -->
-</section>
+
 </body>
 </html>

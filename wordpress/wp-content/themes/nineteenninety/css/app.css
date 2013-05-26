@@ -38,7 +38,7 @@ body{
     margin: 0;
     background-color: #FFF;
     overflow: hidden;
-    border-bottom: 1px solid #ABABAB;
+    border-bottom: 1px solid #E5E5E5;
 }
 .navbar-inner{
     padding: 0;
@@ -153,8 +153,11 @@ body{
 /* Boxes
 --------------------*/
 .box{
-    background-color: #DDD;
+    background-color: #F5F5F5;
+    border: 1px solid #E5E5E5;
     color: #999999;
+    margin-left: 28px;
+    margin-bottom: 5px;
 }
 .box h2{
     color: #555555;
@@ -193,6 +196,16 @@ body{
     border: solid 2px #000;
 }
 
+/* Footer
+--------------------*/
+footer{
+    background-color: #F5F5F5;
+    border-top: 1px solid #E5E5E5;
+    padding: 2em 0;
+    margin-top: 4em;
+    text-align: center;
+}
+
 /* Single article and Page
 ---------------------*/
 .single_title{
@@ -206,16 +219,12 @@ body{
 .single_content{
     text-align: justify;
 }
-
+.single_thumbnail{
+    height: 200px;
+    overflow: hidden;
+}
 /* List
 ----------*/
-/*.list_item{
-    background-color: #FFF;
-    position: relative;
-    height: 235px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}*/
 .list_item{
     position: relative;
 }
@@ -225,7 +234,6 @@ body{
 .list_title{
     background-color: rgba(0,0,0,0.9);
     color: #FFF;
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -235,8 +243,16 @@ body{
     padding: 0;
     margin: 0;
     text-transform:uppercase;
-    font-size: 20px;
+    display: none;
+
+}
+.list_title h2{
+    text-align: center;
+    font-size: 1em;
     font-weight: normal;
+    margin:0;
+    padding: 0;
+    line-height:126px;
 }
 .list_item a:hover{
     text-decoration: none;

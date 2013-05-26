@@ -20,7 +20,7 @@
   </section>
   <!-- /content -->
   <?php get_sidebar(); ?>
-
+  </section>  
 </section>
 <!-- footer -->
 <?php get_footer(); ?>

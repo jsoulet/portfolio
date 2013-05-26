@@ -9,31 +9,33 @@
         <?php 
         $index=0;
         while(have_posts()) : the_post();
-          if($index%3==0)
-            echo '<div class="row">';
+          if($index%6==0)
+            echo '<div class="row-fluid">';
         ?>
 
-          <article class="span3 list_item">
+          <article class="span2 list_item">
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">  
-              <?php the_post_thumbnail('square')/*'large',array('class' => 'img-polaroid'))*/; ?>
-              <h2 class="list_title"><?php the_title(); ?></h2>
+                <?php the_post_thumbnail('square')/*'large',array('class' => 'img-polaroid'))*/; ?>
+                <div class="list_title">
+                  <h2><?php the_title(); ?></h2>
+                </div>
             </a>
 
           </article>
 
-          <?php if($index%3==2)
+          <?php if($index%6==5)
                   echo '</div>';
                 $index++; ?>
         <?php endwhile; ?>
-        <?php if($index%3!=0)
+        <?php if($index%6!=0)
                   echo '</div>'; ?>
       <?php endif; ?>
     </div>
   </section>
   <!-- /content -->
   <?php get_sidebar(); ?>
-
-</section>
+  </section>
+</section> 
 <!-- footer -->
 <?php get_footer(); ?>
 <!-- /footer -->
