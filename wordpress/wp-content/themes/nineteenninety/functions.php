@@ -27,16 +27,20 @@
         function gkp_insert_css_in_head() {
         // On ajoute le css general du theme
         wp_register_style('reset',    get_bloginfo( 'template_directory' ).'/css/'.'reset.css',   '',false,'all');
-        wp_register_style('grid_480',  get_bloginfo( 'template_directory' ).'/css/'.'grid_480.css', '',false,'screen and (max-width: 960px)');
-        wp_register_style('grid_960',  get_bloginfo( 'template_directory' ).'/css/'.'grid_960.css', '',false,'screen and (max-width: 1440px) and (min-width: 960px)');
-        wp_register_style('grid_1440', get_bloginfo( 'template_directory' ).'/css/'.'grid_1440.css','',false,'screen and (min-width: 1440px)');
+        wp_register_style('480',  get_bloginfo( 'template_directory' ).'/css/'.'480.css', '',false,'screen and (max-width: 799px)');
+        wp_register_style('800',  get_bloginfo( 'template_directory' ).'/css/'.'792.css', '',false,'screen and (min-width: 800px) and (max-width: 959px)');
+        wp_register_style('960',  get_bloginfo( 'template_directory' ).'/css/'.'960.css', '',false,'screen and (min-width: 960px) and (max-width: 1023px)');
+        wp_register_style('1024',  get_bloginfo( 'template_directory' ).'/css/'.'1020.css', '',false,'screen and (min-width: 1024px) and (max-width: 1439px)');
+        wp_register_style('1440', get_bloginfo( 'template_directory' ).'/css/'.'1440.css','',false,'screen and (min-width: 1440px)');
         wp_register_style('text',      get_bloginfo( 'template_directory' ).'/css/'.'text.css',     '',false,'all');
         wp_register_style('app',       get_bloginfo( 'template_directory' ).'/css/'.'app.css',      '',false,'all');
         wp_register_style('small',     get_bloginfo( 'template_directory' ).'/css/'.'small.css',    '',false,'screen');
         wp_enqueue_style( 'reset' );
-        wp_enqueue_style( 'grid_480' );
-        wp_enqueue_style( 'grid_960' );
-        wp_enqueue_style( 'grid_1440' );
+        wp_enqueue_style( '480' );
+        wp_enqueue_style( '800' );
+        wp_enqueue_style( '960' );
+        wp_enqueue_style( '1024' );
+        wp_enqueue_style( '1440' );
         wp_enqueue_style( 'text' );
         wp_enqueue_style( 'app' );
         wp_enqueue_style( 'small' );
@@ -104,15 +108,21 @@
         $category_id = 1; // Assuming that the category number of "Featured Gallery" is 1. Change the category ID when needed.
         $limit = 6; // Number of posts to be shown at a time.
         query_posts('showposts=' . $limit);
-        $i=1;
+        $i=0;
         ?>
         <ul id="carousel-control">
             <?php while (have_posts()) : the_post(); ?>
                 <?php
                     if( has_post_thumbnail()){
                         ?>
-                        <li><a class= "grid_1" href="#" data-value="<?php echo $i++; ?>">
-                                <?php the_post_thumbnail(array(65,65), array('class' => "grid_1")); ?>
+                        <li><a class= "grid_1 
+                                   <?php if($i%4==0)
+                                            echo 'alpha';
+                                         if($i%4==3)
+                                            echo 'omega';
+                                    ?>
+                                   " href="#" data-value="<?php echo ++$i; ?>">
+                                <?php the_post_thumbnail(array(65,65)/*, array('class' => "grid_1")*/); ?>
                             </a>
                         </li>
                         <?php } ?>
@@ -133,7 +143,7 @@
         register_sidebar(array(
             'name' => __( 'Bottom left'),
             'id' => '2',
-            'before_widget' => '<div>',
+            'before_widget' => '<div class="box">',
             'after_widget' => '</div>',
             'before_title' => '<h2>',
             'after_title' => '</h2>',
@@ -141,7 +151,7 @@
         register_sidebar(array(
             'name' => __( 'Bottom right'),
             'id' => '3',
-            'before_widget' => '<div>',
+            'before_widget' => '<div class="box">',
             'after_widget' => '</div>',
             'before_title' => '<h2>',
             'after_title' => '</h2>',

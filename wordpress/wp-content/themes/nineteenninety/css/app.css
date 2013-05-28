@@ -42,7 +42,7 @@ header{
     margin-top: 10px;
 }
 
-/* nav -------------*/
+/* Nav -------------*/
 nav{
     line-height: 80px;
     position:relative;
@@ -192,17 +192,16 @@ nav{
     content: "> ";
 }
 
-/* bottom ----------*/
-.bottom{
-    color: #999999;
-} 
-.bottom h2{
+/* Bottom ----------*/
+.box h2{
     color: #555555;
     font-size: 14px;
     font-weight: normal;
 }
-.bottom article div{
-    background-color: #dddddd;
+.box{
+    color: #999999;
+    border: #E5E5E5 solid 1px;
+    background-color: #F5F5F5;
     padding: 15px;
     padding-bottom: 30px;
     margin-top: 10px;
@@ -212,18 +211,18 @@ nav{
     fill: #249cd3;
 }
 
-.bottom .textwidget{
+.box .textwidget{
     margin: 0;
     padding: 0;
 }
 
-/* sub -----------*/
-.sub h2{
+/* Sidebar -----------*/
+.sidebar h2{
     font-size: 13px;
     margin: 15px 0;
     text-transform:uppercase;
 }
-.sub p{
+.sidebar p{
     margin-top: 15px;
 }
 .headings{
@@ -238,6 +237,16 @@ nav{
 #carousel-control li{
     padding:0;
     margin:0;
+}
+/*Footer
+--------------------*/
+.footer{
+    border-top: #E5E5E5 solid 1px;
+    background-color: #F5F5F5;
+    margin-top: 70px;
+    padding: 30px;
+    text-align: center;
+
 }
 /* Page
 ----------*/

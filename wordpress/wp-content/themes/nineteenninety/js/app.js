@@ -1,29 +1,29 @@
 jQuery(document).ready(function() {
-    function initCarousel(carousel){
-      jQuery('#carousel-control a').bind('click', function() {
+    // function initCarousel(carousel){
+    //   jQuery('#carousel-control a').bind('click', function() {
 
-        carousel.scroll(jQuery.jcarousel.intval(jQuery(this).data("value")));
-        return false;
-      });
+    //     carousel.scroll(jQuery.jcarousel.intval(jQuery(this).data("value")));
+    //     return false;
+    //   });
 
-      jQuery('#carousel-next').bind('click', function() {
-            carousel.next();
-            return false;
-        });
-        jQuery('#carousel-prev').bind('click', function() {
-            carousel.prev();
-            return false;
-        });
-    }
+    //   jQuery('#carousel-next').bind('click', function() {
+    //         carousel.next();
+    //         return false;
+    //     });
+    //     jQuery('#carousel-prev').bind('click', function() {
+    //         carousel.prev();
+    //         return false;
+    //     });
+    // }
 
-    jQuery('#carousel').jcarousel({
-        scroll: 1,
-        visible: 1,
-        wrap: "circular",
-        initCallback: initCarousel,
-        buttonNextHTML: null,
-        buttonPrevHTML: null
-    });
+    // jQuery('#carousel').jcarousel({
+    //     scroll: 1,
+    //     visible: 1,
+    //     wrap: "circular",
+    //     initCallback: initCarousel,
+    //     buttonNextHTML: null,
+    //     buttonPrevHTML: null
+    // });
 
     /**
     * Replace all SVG images with inline SVG

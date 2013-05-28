@@ -7,16 +7,16 @@
     <article class="slider">
         <?php get_carousel() ?>
     </article>
-    <section class="bottom">
+    <section>
       
         <?php if (function_exists('dynamic_sidebar')){ ?>
-                <article class="grid_5 alpha left">
+                <article class="grid_5 alpha">
                     <?php dynamic_sidebar('Bottom left'); ?>
                 </article>
         <?php } ?>
 
         <?php if (function_exists('dynamic_sidebar')){ ?>
-                <article class="grid_3 omega right">
+                <article class="grid_3 omega">
                     <?php dynamic_sidebar('Bottom right'); ?>
                 </article>
         <?php } ?>

@@ -6,6 +6,7 @@
  
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
+    <meta name="viewport" content="initial-scale=1.0">
     <!-- leave this for stats -->
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
     <link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
@@ -37,4 +38,4 @@
             <?php get_search_form(); ?>
         </div>
     </header>
-    <div class="clear"> </div>
+    <div class="clear"></div>
