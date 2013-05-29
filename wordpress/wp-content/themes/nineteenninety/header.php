@@ -28,14 +28,22 @@
                 <em><?php bloginfo('description'); ?></em>
             </div>
         </div>
-        <nav class="grid_5 omega nav">
-            <?php wp_nav_menu( array('theme_location'  => 'header_menu',
-                                     'menu_class' => 'nav-list',
-                                     'container'=> 'ul',
-                                     'items_wrap' => '<ul class="nav-list">%3$s</ul>'));?>
-        </nav>
-        <div class="grid_4 alpha omega search">
-            <?php get_search_form(); ?>
+        <div class="nav-btn">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
         </div>
+        <section class="collapse">
+            <nav class="grid_5 omega nav">
+                <?php wp_nav_menu( array('theme_location'  => 'header_menu',
+                                         'menu_class' => 'nav-list',
+                                         'container'=> 'ul',
+                                         'items_wrap' => '<ul class="nav-list">%3$s</ul>'));?>
+            </nav>
+            <div class="grid_4 alpha omega search">
+                <?php get_search_form(); ?>
+            </div>
+        </section>
     </header>
     <div class="clear"></div>

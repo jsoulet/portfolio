@@ -15,7 +15,8 @@
 
 /* header ----------*/
 header{
-    height: 50px;
+    height: 80px;
+    position: relative;
 }
 /* .logo -----------*/
 .logo h1 a{
@@ -74,15 +75,27 @@ nav{
     text-decoration: none;
 }
 
-.nav-mobile {
-        display:none; /* Hide from browsers that don't support media queries */
-        cursor:pointer;
-        position:absolute;
-        top:0;
-        right:0;
-        background:#000 url(../images/nav-mobile.svg) no-repeat center center;
-        height:40px;
-        width:40px;
+.nav-btn {
+    display:none; /* Hide from browsers that don't support media queries */
+    cursor:pointer;
+    position: absolute;
+    top:20px;
+    right:5px;
+    background:#000;
+    height:40px;
+    width:40px;
+    padding: 9px 10px 9px 10px;
+}
+.nav-btn::first-child{
+    margin-bottom: 8px;
+}
+.nav-btn::last-child{
+    margin-top: 8px;
+}
+.nav-btn .line{
+    background-color: #FFF;
+    display: block;
+    height: 3px;
 }
 
 /* search ----------*/
