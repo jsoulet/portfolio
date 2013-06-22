@@ -16,9 +16,6 @@ Increase this if your layout is wider.
 
 Note: IE6 works fine without this fix.
 */
-body {
-	min-width: 960px;
-}
 
 /* =Containers
 --------------------------------------------------------------------------------*/

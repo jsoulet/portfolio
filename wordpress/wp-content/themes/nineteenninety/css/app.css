@@ -14,7 +14,7 @@
 }
 
 /* header ----------*/
-header{
+.header{
     height: 80px;
     position: relative;
 }
@@ -44,7 +44,7 @@ header{
 }
 
 /* Nav -------------*/
-nav{
+.nav{
     line-height: 80px;
     position:relative;
 }
@@ -78,9 +78,9 @@ nav{
 .nav-btn {
     display:none; /* Hide from browsers that don't support media queries */
     cursor:pointer;
-    position: absolute;
+    /*position: absolute;
     top:20px;
-    right:5px;
+    right:5px;*/
     background:#000;
     height:40px;
     width:40px;
@@ -103,7 +103,7 @@ nav{
     line-height: 80px;
     background-color: #000;
     color: #fff;
-    padding: 0 10px;
+    padding-left: 10px;
 }
 
 #search_btn{
@@ -246,11 +246,29 @@ nav{
     margin:0;
     list-style-type:none;
 }
+#carousel-control a{
+    border: 1px solid #000;
+}
 
 #carousel-control li{
     padding:0;
     margin:0;
 }
+
+#carousel-control .grid_1{
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+#carousel-control .alpha{
+    margin-left: 0;
+    margin-right: 8px;
+}
+#carousel-control .omega{
+    margin-left: 8px;
+    margin-right: 0;
+}
+
 /*Footer
 --------------------*/
 .footer{
@@ -303,14 +321,14 @@ nav{
     height: 235px;
     margin-top: 10px;
     margin-bottom: 10px;
-    /*padding: 15px;*/
+    overflow: hidden;
 }
 
 .list_title{
-    display: none;
+    /*display: none;*/
     height:235px;
     width: 235px;
-    top: 0;
+    top: -235px;
     left: 0;
     position: absolute;
     background-color: rgba(0,0,0,0.9);
@@ -320,12 +338,21 @@ nav{
     text-transform:uppercase;
     font-size: 20px;
     font-weight: normal;
+    transition: top .5s ease-out;
+    -o-transition: top .5s ease-out;
+    -webkit-transition: top .5s sease-out;
+    -moz-transition: top .5s ease-out;
 }
+
+.list_item:hover .list_title{
+    top:0;
+}
+
 .list_item a:hover{
     text-decoration: none;
 }
 
 .list_main{
-    background-color: #DDD;
+    background-color: #FFF;
 }
 

@@ -105,7 +105,7 @@
 
     function get_carousel_controls() {
         wp_reset_query();
-        $category_id = 1; // Assuming that the category number of "Featured Gallery" is 1. Change the category ID when needed.
+        $category_id = 1;
         $limit = 6; // Number of posts to be shown at a time.
         query_posts('showposts=' . $limit);
         $i=0;
@@ -115,14 +115,9 @@
                 <?php
                     if( has_post_thumbnail()){
                         ?>
-                        <li><a class= "grid_1 
-                                   <?php if($i%4==0)
-                                            echo 'alpha';
-                                         if($i%4==3)
-                                            echo 'omega';
-                                    ?>
+                        <li><a class= "grid_1 <?php if($i%4==0) echo 'alpha'; if($i%4==3) echo 'omega';?>
                                    " href="#" data-value="<?php echo ++$i; ?>">
-                                <?php the_post_thumbnail(array(65,65)/*, array('class' => "grid_1")*/); ?>
+                                <?php the_post_thumbnail(array(65,65)); ?>
                             </a>
                         </li>
                         <?php } ?>
@@ -131,37 +126,38 @@
         <?php wp_reset_query();
     }
 
-    if ( function_exists('register_sidebar') )
+    if ( function_exists('register_sidebar') ){
         register_sidebar(array(
-            'name' => __( 'Sidebar'),
-            'id' => '1',
+            'name' => __( 'Sidebar', 'ninetynineteen'),
+            'id' => 'under-sidebar',
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget' => '</section>',
             'before_title' => '<h2>',
             'after_title' => '</h2>',
         ));
         register_sidebar(array(
-            'name' => __( 'Bottom left'),
-            'id' => '2',
+            'name' => __( 'Bottom left', 'ninetynineteen'),
+            'id' => 'bottom-left-sidebar',
             'before_widget' => '<div class="box">',
             'after_widget' => '</div>',
             'before_title' => '<h2>',
             'after_title' => '</h2>',
         ));
         register_sidebar(array(
-            'name' => __( 'Bottom right'),
-            'id' => '3',
+            'name' => __( 'Bottom right', 'ninetynineteen'),
+            'id' => 'bottom-right-sidebar',
             'before_widget' => '<div class="box">',
             'after_widget' => '</div>',
             'before_title' => '<h2>',
             'after_title' => '</h2>',
         ));
         register_sidebar(array(
-            'name' => __( 'Over slider controls'),
-            'id' => '4',
+            'name' => __( 'Over slider controls', 'ninetynineteen'),
+            'id' => 'over-sidebar',
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget' => '</section>',
             'before_title' => '<h2>',
             'after_title' => '</h2>',
         ));
+    }
 ?>

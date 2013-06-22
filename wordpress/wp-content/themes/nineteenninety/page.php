@@ -7,10 +7,11 @@
     <?php if(have_posts()) : ?>
       <?php while(have_posts()) : the_post(); ?>
         <article>
-          <h2 id="single_title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-          
-          <?php if(has_excerpt()){ ?>
-            <div id="single_excerpt"><?php the_excerpt() ?></div>
+          <header>
+            <h2 id="single_title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+          </header>
+            <?php if(has_excerpt()){ ?>
+              <div id="single_excerpt"><?php the_excerpt() ?></div>
           <?php } ?>
           <div id="single_content"><?php the_content(); ?></div>
 

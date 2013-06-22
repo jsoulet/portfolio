@@ -6,7 +6,7 @@
  
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
-    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- leave this for stats -->
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
     <link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
@@ -18,7 +18,7 @@
     <?php //comments_popup_script(); // off by default ?>
 </head>
 <body>
-    <header class="container_12">
+    <header class="header container_12">
         <div class="grid_3 alpha logo">
             <div class="grid_1 alpha omega">
                 <img src="http://www.gravatar.com/avatar/<?php echo md5('johan.soulet@gmail.com') ?>" alt="Gravatar" />
