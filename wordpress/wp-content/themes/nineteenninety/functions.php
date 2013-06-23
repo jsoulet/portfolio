@@ -34,7 +34,6 @@
         wp_register_style('1440', get_bloginfo( 'template_directory' ).'/css/'.'1440.css','',false,'screen and (min-width: 1440px)');
         wp_register_style('text',      get_bloginfo( 'template_directory' ).'/css/'.'text.css',     '',false,'all');
         wp_register_style('app',       get_bloginfo( 'template_directory' ).'/css/'.'app.css',      '',false,'all');
-        wp_register_style('small',     get_bloginfo( 'template_directory' ).'/css/'.'small.css',    '',false,'screen and (max-width: 959px)');
         wp_enqueue_style( 'reset' );
         wp_enqueue_style( '480' );
         wp_enqueue_style( '800' );
@@ -43,7 +42,6 @@
         wp_enqueue_style( '1440' );
         wp_enqueue_style( 'text' );
         wp_enqueue_style( 'app' );
-        wp_enqueue_style( 'small' );
     }
     /**
     * Automatically add JS files in the footer
